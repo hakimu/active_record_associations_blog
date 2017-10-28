@@ -10,6 +10,7 @@
       </ul>
     </div>
   <% end %>
+  <p>I'm in the edit form at <%= Time.now %></p>
 
   <div class="field">
     <%= f.label :username %>
@@ -21,10 +22,12 @@
     <%= f.text_field :email %>
   </div>
   <div class="field">
-  <%= fields_for :comment do |c| %>
-  <%= text_area :comment, :description %>
-  <% end %>
+    <%= f.fields_for :comments do |comment_builder| %>
+      <%= comment_builder.label :description %>
+      <%= comment_builder.text_area :description %>
+    <% end %>
   </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

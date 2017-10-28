@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<%= link_to "Create a new user", new_user_path %>
+
 <table>
   <% @users.each do |user| %>
   <tr>
@@ -9,4 +11,4 @@
   </tr>
   <% end %>
 </table>
-<p>There are a total of <%#= @comments.count %> comments. <%#= link_to "Check em out...", user_comments_path %></p>
+<p>There are a total of <%= @comments.count %> comments. <%#= link_to "Check em out...", user_comments_path %></p>

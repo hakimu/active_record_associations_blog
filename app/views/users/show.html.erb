@@ -1,26 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
+<p>This is the users page...</p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+<p> => <%= link_to "Edit", edit_user_path %></p>
 
-<p>
-  <table>
-    <% @comments.each do |comment| %>
-    <tr>
-      <td><%= comment.description %></td>
-      <td>| <em><small>Last updated <%= time_ago_in_words(comment.updated_at || comment.created_at) %> go</small></em></td>
-    </tr>
-     <% end %>
+<p>The user is <%= @user.username %> with an email of <%= @user.email %></p>
+<p>I've written <%= @user.comments.count %> comments so far </p>
+<p>Comments is of class <%= @comments.class %></p>
 
-  </table>
-</p>
+<% @user.comments.each do |comment| %>
+<table>
+  <tr>
+    <td><%= comment.description %></td>
+  </tr>
+</table>
+<% end %>  
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+
+<p>My name is <%= @user.username %>.</p>
+
+<% @comments.each do |comment| %>
+  <tr>
+    <td><%= comment.description %></td>
+  </tr>
+<% end %>
+
+<p>Go back <%= link_to "Home", users_path %></p>

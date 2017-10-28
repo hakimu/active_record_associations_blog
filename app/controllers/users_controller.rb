@@ -11,26 +11,30 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    # @user = User.find(params[:id])
+    @user = User.find(params[:id])
     @comments = @user.comments
+   
 
   end
 
   # GET /users/new
   def new
     @user = User.new
+    @user.comments.build 
   end
 
   # GET /users/1/edit
   def edit
-    @user = User.find(params[:id])
+    # @user = User.find(params[:id])
     @comment = @user.comments.first
   end
 
   # POST /users
   # POST /users.json
   def create
+    # raise params.inspect
     @user = User.new(user_params)
+
 
     respond_to do |format|
       if @user.save
@@ -46,8 +50,10 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    puts "=====#{params.inspect}===="
-    comment = Comment.new(params[:comment])
+    # puts "=====#{params.inspect}===="
+    # puts "****===Comment #{params[:comment].inspect}====****"
+    # binding.pry
+    comment = Comment.new(params[:user][:comment])
     @user.comments << comment
     respond_to do |format|
       if @user.update(user_params)
@@ -78,9 +84,10 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:username, :email)
-      # params.require(:user).permit!
-      params.require(:comment).permit(:description)
+      # params.require(:user).permit(:username, :email, :comments)
+      # params.require(:user).permit(:username, :email, :addresses)
+      params.require(:user).permit(:username, :comments_attributes => [:description])
+      # params.require(:comment).permit(:description)
       # params.require(:comment).permit!
     end
 end
