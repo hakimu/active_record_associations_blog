@@ -1,9 +1,18 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+--- !omap
 one:
-  description: MyText
-  user: one
+  description: After going to the bank to apply for a business loan for my stereo store...
+  user: buck
 
 two:
-  description: MyText
-  user: two
+  description: And this is the second comment I created from the fixture.
+  user: maria
+
+three:
+  description: ...I decided to go to the Winchell's Donughts off Zelzah.
+  user: buck
+
+four:
+  description: At that moment, things got worse.
+  user: buck 

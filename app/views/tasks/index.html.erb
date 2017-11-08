@@ -1,0 +1,9 @@
+<% if @tasks.present? %>
+ <p>There are <%= @tasks.count %> tasks in the database</p>
+ <p><%= link_to "Create new task", new_task_path %></p>
+ <% @tasks.each do |task| %>
+   <p><%= task.title %></p>
+ <% end %>
+<% else %>
+  <p>There are no tasks...<%= link_to "Create a task", new_task_path %></p>
+<% end %>

@@ -1,28 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<p>This is the users page...</p>
+<p>=><%= link_to "Edit", edit_user_path %></p>
 
-<p> => <%= link_to "Edit", edit_user_path %></p>
-
-<p>The user is <%= @user.username %> with an email of <%= @user.email %></p>
-<p>I've written <%= @user.comments.count %> comments so far </p>
-<p>Comments is of class <%= @comments.class %></p>
-
-<% @user.comments.each do |comment| %>
-<table>
-  <tr>
-    <td><%= comment.description %></td>
-  </tr>
-</table>
-<% end %>  
-
-
-<p>My name is <%= @user.username %>.</p>
-
-<% @comments.each do |comment| %>
-  <tr>
-    <td><%= comment.description %></td>
-  </tr>
+<p><%= @user.username %> of <%= @user.city %> with an email of <%= @user.email %></p>
+<% if @comments.present? %>
+  <p><em><%= @comments.count %> comments.  <small>Last comment <%= time_ago_in_words(@comments.last.updated_at) %></small></em></p>
+  <% @user.comments.each do |comment| %>
+      <p><%= comment.description %></p>
+  <% end %>  
+<% else %>
+  <p><em>I don't currently have comments</em></p>
 <% end %>
 
 <p>Go back <%= link_to "Home", users_path %></p>

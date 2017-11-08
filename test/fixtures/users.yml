@@ -1,9 +1,30 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  username: MyString
-  email: MyString
+--- !omap
+buck:
+  username: Buck Swope
+  email: buck.swope@gmail.com
+  city: Granda Hills
+  state: California
+  zipcode: 91344
 
-two:
-  username: MyString
-  email: MyString
+maria:
+  username: Maria Rodriguez
+  email: maria_r@example.com
+  city: Mission Hills
+  state: California
+  zipcode: 91345
+
+three:
+  username: Marcus Merriwhether
+  email: marcusm@example.com
+  city: Los Angeles
+  state: California
+  zipcode: 90028
+
+four:
+  username: Malik Little
+  email: mlittle@gmail.com
+  city: Oxnard
+  state: California
+  zipcode: 93035

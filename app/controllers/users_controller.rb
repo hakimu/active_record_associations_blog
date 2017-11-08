@@ -13,14 +13,13 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @comments = @user.comments
-   
-
   end
 
   # GET /users/new
   def new
     @user = User.new
     @user.comments.build 
+    @user.tasks.build 
   end
 
   # GET /users/1/edit
@@ -84,10 +83,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      # params.require(:user).permit(:username, :email, :comments)
-      # params.require(:user).permit(:username, :email, :addresses)
-      params.require(:user).permit(:username, :comments_attributes => [:description])
-      # params.require(:comment).permit(:description)
-      # params.require(:comment).permit!
+      params.require(:user).permit(:username, :email, :city, :state, :zipcode, :comments_attributes => [:description])
     end
 end

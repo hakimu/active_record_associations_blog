@@ -22,9 +22,9 @@
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.fields_for :comments do |comment_builder| %>
+    <%= f.fields_for :comment do |comment_builder| %>
       <%= comment_builder.label :description %>
-      <%= comment_builder.text_area :description %>
+      <%= comment_builder.text_area :description, :value => "#{@comment.description}" %>
     <% end %>
   </div>
   

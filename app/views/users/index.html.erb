@@ -1,14 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to "Create a new user", new_user_path %>
+<% if @users.present? %>
+  <table>
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= user.username %></td>
+      <td> <%= user.email %></td>
+      <td> <%= link_to "View User", user %></td>
+    </tr>
+    <% end %>
+  </table>
+  <%= link_to "Create a new user", new_user_path %><br><br>
+  <%= link_to "Go to Comments", comments_path %>
+<% else %>
+  <p>To get started...<%= link_to "Create a new user", new_user_path %></p>
+<% end %>  
 
-<table>
-  <% @users.each do |user| %>
-  <tr>
-    <td><%= user.username %></td>
-    <td> <%= user.email %></td>
-    <td> <%= link_to "View User", user %></td>
-  </tr>
-  <% end %>
-</table>
-<p>There are a total of <%= @comments.count %> comments. <%#= link_to "Check em out...", user_comments_path %></p>
+
+
