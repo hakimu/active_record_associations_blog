@@ -37,11 +37,15 @@
   </div>
 
   <div class="field">
-    <%= f.fields_for :tasks do |comment_builder| %>
-      <%= comment_builder.label :task_name %>
-      <%= comment_builder.text_field :title %>
-      <%= comment_builder.label :task %>
-      <%= comment_builder.text_area :body %>
+    <%= f.fields_for :tasks do |task_builder| %>
+      <%= task_builder.label :task_name %>
+      <%= task_builder.text_field :title %>
+      <%= task_builder.label :task %>
+      <%= task_builder.text_area :body %>
+      <%= task_builder.label :due_date %>
+      <%= task_builder.datetime_field :due %>
+      <%= task_builder.label :complete %>
+      <%= task_builder.check_box :complete %>
     <% end %>
   </div>
 
