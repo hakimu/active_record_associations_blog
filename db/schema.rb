@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190605155516) do
+ActiveRecord::Schema.define(version: 20190605183951) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "description"
@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 20190605155516) do
     t.string   "state"
     t.integer  "zipcode"
     t.string   "image_location"
+    t.string   "internal_id"
+    t.index ["internal_id"], name: "index_users_on_internal_id"
   end
 
 end
